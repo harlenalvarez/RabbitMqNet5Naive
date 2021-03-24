@@ -6,7 +6,12 @@ has a basic retry queue that re-publishes messages to the failed subscriber,
 and a dead letter queue subscription.
 
 # Getting Started
-1. Register the library in your service collection.
+1. Install the package
+```csharp
+dotnet add package RabbitMqNet5Naive --version 1.0.1
+```
+
+2. Register the library in your service collection.
 ```csharp
 services.AddRabbitMQMessagingService(opt =>
 {
@@ -14,13 +19,13 @@ services.AddRabbitMQMessagingService(opt =>
 });
 ```
 
-2. Publish a message
+3. Publish a message
 ```csharp
 var publisher = provider.GetService<IMessagePublisher>();
 publisher.SendMessage<string>("test-topic", "Test Topic payload");
 ```
 
-3. To handle messages create a subscription handler.
+4. To handle messages create a subscription handler.
 ```csharp
     public class TestSub1 : BaseMessageSubscriber<string>
     {
@@ -41,7 +46,7 @@ publisher.SendMessage<string>("test-topic", "Test Topic payload");
     }
 ```
 
-4. Register the subscriber in a Worker Service or Api Project (You can also do it in a console app but will need to set up a Host Builder)
+5. Register the subscriber in a Worker Service or Api Project (You can also do it in a console app but will need to set up a Host Builder)
 ```csharp
 services.AddRabbitMQMessagingService(opt =>
 {
@@ -50,7 +55,8 @@ services.AddRabbitMQMessagingService(opt =>
 .RegisterSubsciber<TestSub1>()
 .UseSubscribers();
 ```
-5. To handle dead letters create a dead letter subscriber (you can only have one)
+
+6. To handle dead letters create a dead letter subscriber (you can only have one)
 ```csharp
     public class DLQSub : BaseMessageDeadLetterSubscriber
     {
@@ -70,7 +76,7 @@ services.AddRabbitMQMessagingService(opt =>
         }
     }
 ```
-6. Register the DLQ Handler
+7. Register the DLQ Handler
 ```csharp
 services.AddRabbitMQMessagingService(opt =>
 {
