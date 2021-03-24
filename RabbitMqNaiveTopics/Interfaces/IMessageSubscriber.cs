@@ -32,6 +32,6 @@ namespace RabbitMqNaiveTopics.Interfaces
         bool IsDeadLetter { get; }
 
 
-        ValueTask<MessageSubscriberResponse> HandleAsync(ReadOnlyMemory<byte> messsage, IBasicProperties properties);
+        ValueTask<MessageSubscriberResponse> HandleAsync(ReadOnlyMemory<byte> message, IBasicProperties properties);
     }
 }

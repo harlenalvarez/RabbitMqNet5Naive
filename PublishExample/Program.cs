@@ -25,7 +25,7 @@ namespace PublishExample
             var provider = services.BuildServiceProvider();
             var publisher = provider.GetService<IMessagePublisher>();
             var userId = Guid.NewGuid();
-            for (int i = 1; i < 3; i++)
+            for (int i = 1; i < 2; i++)
                 publisher.SendMessage<string>("test-topic", $"Test Topic payload {i}", userId: userId.ToString());
             Console.WriteLine("Published message");
         }
