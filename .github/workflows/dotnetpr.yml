@@ -20,4 +20,6 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: LS Secret
-      run: echo "My secret is ${{ secrets.NUGETKEY }}"
+      env:
+        NUGET_KEY: ${{ secrets.NUGETKEY }}
+      run: echo "My secret is $NUGET_KEY"
