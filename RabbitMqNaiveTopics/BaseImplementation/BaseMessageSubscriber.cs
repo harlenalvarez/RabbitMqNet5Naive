@@ -24,9 +24,9 @@ namespace RabbitMqNaiveTopics.BaseImplementation
 
         public abstract ValueTask<MessageSubscriberResponse> HandleAsync(T message, IBasicProperties properties);
 
-        public ValueTask<MessageSubscriberResponse> HandleAsync(ReadOnlyMemory<byte> messsage, IBasicProperties properties)
+        public ValueTask<MessageSubscriberResponse> HandleAsync(ReadOnlyMemory<byte> message, IBasicProperties properties)
         {
-            T payload = _messageParser.ParseMessage<T>(messsage.Span);
+            T payload = _messageParser.ParseMessage<T>(message.Span);
             return HandleAsync(payload, properties);
         }
     }

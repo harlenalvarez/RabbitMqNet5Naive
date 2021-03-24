@@ -65,13 +65,18 @@ namespace RabbitMqNaiveTopics.Implementations
                
                 var argsProperties = channel.CreateBasicProperties();
                 argsProperties.Headers = new Dictionary<string, object>();
-                argsProperties.Persistent = args.BasicProperties.Persistent;
-                argsProperties.Expiration = args.BasicProperties.Expiration;
-                argsProperties.CorrelationId = args.BasicProperties.CorrelationId;
                 argsProperties.UserId = args.BasicProperties.UserId;
-                argsProperties.AppId = args.BasicProperties.AppId;
-                argsProperties.ContentEncoding = args.BasicProperties.ContentEncoding;
+                argsProperties.Timestamp = new AmqpTimestamp(args.BasicProperties.Timestamp.UnixTime);
+                argsProperties.Priority = args.BasicProperties.Priority;
+                argsProperties.Persistent = args.BasicProperties.Persistent;
+                argsProperties.MessageId = args.BasicProperties.MessageId;
+                argsProperties.Expiration = args.BasicProperties.Expiration;
+                argsProperties.DeliveryMode = args.BasicProperties.DeliveryMode;
+                argsProperties.CorrelationId = args.BasicProperties.CorrelationId;
                 argsProperties.ContentType = args.BasicProperties.ContentType;
+                argsProperties.ContentEncoding = args.BasicProperties.ContentEncoding;
+                argsProperties.AppId = args.BasicProperties.AppId;
+                argsProperties.Type = args.BasicProperties.Type;
                 foreach ((var k, var v) in args.BasicProperties.Headers)
                 {
                     argsProperties.Headers.Add(k, v);
