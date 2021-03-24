@@ -8,6 +8,6 @@ namespace RabbitMqNaiveTopics.Interfaces
 {
     public interface IMessagePublisher
     {
-        void SendMessage<T>(string topic, T payload, string filterKey = "#", TimeSpan? expiration = null);
+        void SendMessage<T>(string topic, T payload, string filterKey = "#", TimeSpan? expiration = null, string userId = null);
     }
 }

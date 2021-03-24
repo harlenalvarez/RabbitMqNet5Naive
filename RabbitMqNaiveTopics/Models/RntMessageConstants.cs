@@ -13,6 +13,7 @@ namespace RabbitMqNaiveTopics.Models
         public const string RetryTopicHeader = "rnt-retry-topic";
         public const string DelayHeader = "rnt-delay";
         public const string RetrySubscription = "snt-retry-subscription-name";
+        public const string RequestUserId = "snt-request-user-id";
 
         public const string RetryRoutingKey = "dlq.retry";
         public const string DeadLetterRoutingKey = "dlq.non_retry";
