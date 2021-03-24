@@ -84,8 +84,8 @@ services.AddRabbitMQMessagingService(opt =>
 ### Options
 ##### Registration Options
 
-| Property       | Required | Default Value    | Purpose
-|----------      |----------|--------------    |
+| Property | Required | Default Value    | Purpose
+| --- | --- | --- | --- |
 |ConnectionString| Yes      | no default value | The rabbitmq connection string
 |RetrySubscription| Yes     | RMS_RetrySubscription | Name of the retry subscription that is created in the background
 |DeadLetterSubscription| Yes | RMS_DeadLetterSubscription| Name of the deadletter subscription
@@ -95,7 +95,7 @@ services.AddRabbitMQMessagingService(opt =>
 
 
 | Property       | Required | Default Value    | Purpose
-|----------      |----------|--------------    |
+| --- | --- | --- | --- |
 | TopicName      | yes      | no default value | Name of topic to get messages from
 | ForwardToRoutingKey | no | # | This is the routing key for the subscription, only messages with this key will be picked up by the subscription.
 | PrefetchCount | yes | 5 | Number of messages to prefetch, messages will still be processed async and it will distribute between multiple instances
