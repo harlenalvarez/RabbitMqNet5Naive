@@ -1,0 +1,12 @@
+C:\Users\HAlva\source\repos\RabbitMqNaiveTopics\RabbitMqNaiveTopics\obj\Debug\net5.0\RabbitMqNaiveTopics.csprojAssemblyReference.cache
+C:\Users\HAlva\source\repos\RabbitMqNaiveTopics\RabbitMqNaiveTopics\obj\Debug\net5.0\RabbitMqNaiveTopics.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HAlva\source\repos\RabbitMqNaiveTopics\RabbitMqNaiveTopics\obj\Debug\net5.0\RabbitMqNaiveTopics.AssemblyInfoInputs.cache
+C:\Users\HAlva\source\repos\RabbitMqNaiveTopics\RabbitMqNaiveTopics\obj\Debug\net5.0\RabbitMqNaiveTopics.AssemblyInfo.cs
+C:\Users\HAlva\source\repos\RabbitMqNaiveTopics\RabbitMqNaiveTopics\obj\Debug\net5.0\RabbitMqNaiveTopics.csproj.CoreCompileInputs.cache
+C:\Users\HAlva\source\repos\RabbitMqNaiveTopics\RabbitMqNaiveTopics\bin\Debug\net5.0\RabbitMqNaiveTopics.deps.json
+C:\Users\HAlva\source\repos\RabbitMqNaiveTopics\RabbitMqNaiveTopics\bin\Debug\net5.0\RabbitMqNaiveTopics.dll
+C:\Users\HAlva\source\repos\RabbitMqNaiveTopics\RabbitMqNaiveTopics\bin\Debug\net5.0\ref\RabbitMqNaiveTopics.dll
+C:\Users\HAlva\source\repos\RabbitMqNaiveTopics\RabbitMqNaiveTopics\bin\Debug\net5.0\RabbitMqNaiveTopics.pdb
+C:\Users\HAlva\source\repos\RabbitMqNaiveTopics\RabbitMqNaiveTopics\obj\Debug\net5.0\RabbitMqNaiveTopics.dll
+C:\Users\HAlva\source\repos\RabbitMqNaiveTopics\RabbitMqNaiveTopics\obj\Debug\net5.0\ref\RabbitMqNaiveTopics.dll
+C:\Users\HAlva\source\repos\RabbitMqNaiveTopics\RabbitMqNaiveTopics\obj\Debug\net5.0\RabbitMqNaiveTopics.pdb
