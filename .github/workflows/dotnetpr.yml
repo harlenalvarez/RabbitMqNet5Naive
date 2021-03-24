@@ -22,4 +22,4 @@ jobs:
     - name: LS Secret
       env:
         NUGET_KEY: ${{ secrets.NUGETKEY }}
-      run: echo "My secret is $NUGET_KEY"
+      run: echo $NUGET_KEY
