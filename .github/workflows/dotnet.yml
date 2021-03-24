@@ -26,4 +26,4 @@ jobs:
     - name: Publish Package
       env:
         NUGET_KEY: ${{ secrets.NUGETKEY }}
-      run: dotnet nuget push ./packages/RabbitMqNet5Naive.1.0.0.nupkg --api-key $NUGET_KEY -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push "./packages/*.nupkg" --api-key $NUGET_KEY -s https://api.nuget.org/v3/index.json
