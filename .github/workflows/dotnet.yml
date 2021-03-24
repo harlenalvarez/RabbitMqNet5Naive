@@ -20,4 +20,6 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Pack
-      run: dotnet pack ./RabbitMqNaiveTopics/RabbitMqNaiveTopics.csproj -c Release
+      run: dotnet pack ./RabbitMqNaiveTopics/RabbitMqNaiveTopics.csproj -c Release --output ./packages
+    - name: List Packages
+      run: ls ./packages
