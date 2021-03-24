@@ -13,6 +13,7 @@ namespace RabbitMqNaiveTopics.BaseImplementation
         public string TopicName { get; } = string.Empty;
         public string ForwardToRoutingKey { get; } = "dlq.non_retry";
         public bool IsDeadLetter { get; } = true;
+        public string SubscriptionName { get; } = null;
         public abstract ValueTask<MessageSubscriberResponse> HandleAsync(ReadOnlyMemory<byte> message, IBasicProperties properties);
     }
 }

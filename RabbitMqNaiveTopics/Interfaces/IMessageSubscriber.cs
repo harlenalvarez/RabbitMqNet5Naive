@@ -13,6 +13,10 @@ namespace RabbitMqNaiveTopics.Interfaces
         /// </summary>
         string TopicName { get; }
         /// <summary>
+        /// Name of subscription, if none is passed it will use the subcription class name
+        /// </summary>
+        string SubscriptionName { get; }
+        /// <summary>
         /// A key to filter messages to this subscriber, default to # to fanout
         /// </summary>
         string ForwardToRoutingKey { get; }

@@ -34,7 +34,7 @@ namespace RabbitMqNaiveTopics.Implementations
             subscriptionsCollection = _serviceProvider
                 .GetServices<IMessageSubscriber>()
                 .Where(s => !s.IsDeadLetter)
-                .ToDictionary(s => s.GetType().Name, s => s);
+                .ToDictionary(s => string.IsNullOrEmpty(s.SubscriptionName) ? s.GetType().Name : s.SubscriptionName, s => s);
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
