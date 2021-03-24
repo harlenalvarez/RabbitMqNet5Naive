@@ -1,6 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <PackageId>RabbitMqNet5Naive</PackageId>
+    <Authors>Harlen Alvarez</Authors>
+    <Company>Unstable Studios</Company>
+    <Version>1.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
