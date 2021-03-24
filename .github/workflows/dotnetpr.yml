@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-
+    environment: production
     runs-on: ubuntu-latest
 
     steps:
@@ -19,3 +19,7 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
+    - name: LS Secret
+      env:
+        NUGET_KEY: ${{ secrets.NUGETKEY }}
+      run: echo $NUGET_KEY
