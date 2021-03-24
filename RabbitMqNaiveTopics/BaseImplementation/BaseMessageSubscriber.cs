@@ -19,9 +19,8 @@ namespace RabbitMqNaiveTopics.BaseImplementation
         public virtual string ForwardToRoutingKey { get; } = "#";
         public virtual ushort MaxRetries { get; } = 3;
         public abstract string TopicName { get; }
-
         public bool IsDeadLetter { get; } = false;
-
+        public virtual string SubscriptionName { get; } = null;
         public abstract ValueTask<MessageSubscriberResponse> HandleAsync(T message, IBasicProperties properties);
 
         public ValueTask<MessageSubscriberResponse> HandleAsync(ReadOnlyMemory<byte> message, IBasicProperties properties)

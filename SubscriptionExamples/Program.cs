@@ -51,8 +51,7 @@ namespace SubscriptionExamples
             logger.LogInformation($"Receive Message in Sub1 {message}");
             return new MessageSubscriberResponse
             {
-                Success = false,
-                ShouldRetry = true
+                Success = true
             };
         }
     }
