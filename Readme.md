@@ -8,7 +8,7 @@ and a dead letter queue subscription.
 # Getting Started
 1. Install the package
 ```csharp
-dotnet add package RabbitMqNet5Naive --version 1.0.1
+dotnet add package RabbitMqNet5Naive
 ```
 
 2. Register the library in your service collection.
