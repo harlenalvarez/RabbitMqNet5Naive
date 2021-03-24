@@ -21,5 +21,5 @@ jobs:
       run: dotnet build --no-restore
     - name: LS Secret
       env:
-        NUGET_KEY: ${{ secrets.SUPERSECRET }}
+        NUGET_KEY: ${{ secrets.NUGETKEY }}
       run: echo $NUGET_KEY
