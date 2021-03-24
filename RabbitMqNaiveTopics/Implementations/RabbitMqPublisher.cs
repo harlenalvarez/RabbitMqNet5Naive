@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using RabbitMqNaiveTopics.Extensions;
 using RabbitMqNaiveTopics.Interfaces;
 using RabbitMqNaiveTopics.Models;
 using System;
@@ -19,7 +20,7 @@ namespace RabbitMqNaiveTopics.Implementations
             this._logger = logger;
         }
 
-        public void SendMessage<T>(string topic, T payload, string filterKey = "#", TimeSpan? expiration = null)
+        public void SendMessage<T>(string topic, T payload, string filterKey = "#", TimeSpan? expiration = null, string userId = null)
         {
             var message = _parser.SerializeMessage(payload);
             _logger.LogInformation($"Sending message to {topic} - {message}");
@@ -33,6 +34,10 @@ namespace RabbitMqNaiveTopics.Implementations
             options.Headers = new Dictionary<string, object>();
             options.Headers.Add(RntMessageConstants.RetryCountHeader, 0);
             options.Type = typeof(T).AssemblyQualifiedName;
+            if(!string.IsNullOrEmpty(userId))
+            {
+                options.SetRequestUserId(userId);
+            }
             channel.BasicPublish(exchange: topic, routingKey: filterKey, false, options, message);
         }
 

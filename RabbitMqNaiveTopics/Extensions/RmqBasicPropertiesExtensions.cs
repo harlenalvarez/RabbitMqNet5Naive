@@ -83,6 +83,23 @@ namespace RabbitMqNaiveTopics.Extensions
                 properties.Headers[RntMessageConstants.RetrySubscription] = subscriptionName;
         }
 
+        public static string GetRequestUserId(this IBasicProperties properties)
+        {
+            if (!properties.IsHeadersPresent()) return string.Empty;
+            if (!properties.Headers.TryGetValue(RntMessageConstants.RequestUserId, out var userId)) return string.Empty;
+
+            return Encoding.UTF8.GetString((byte[])userId);
+        }
+
+        public static void SetRequestUserId(this IBasicProperties properties, string userId)
+        {
+            properties.EnsureHeadersExist();
+            if (!properties.Headers.ContainsKey(RntMessageConstants.RequestUserId))
+                properties.Headers.Add(RntMessageConstants.RequestUserId, userId);
+            else
+                properties.Headers[RntMessageConstants.RequestUserId] = userId;
+        }
+
         public static void EnsureHeadersExist(this IBasicProperties properties)
         {
             if(!properties.IsHeadersPresent())
