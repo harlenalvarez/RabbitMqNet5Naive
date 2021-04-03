@@ -11,19 +11,16 @@ namespace RabbitMqNaiveTopics.Implementations
     {
         private readonly IChannelFactory _channelFactory;
         private readonly IMessageParser _parser;
-        private readonly ILogger<RabbitMqPublisher> _logger;
 
-        public RabbitMqPublisher(IChannelFactory channelFactory, IMessageParser parser, ILogger<RabbitMqPublisher> logger)
+        public RabbitMqPublisher(IChannelFactory channelFactory, IMessageParser parser)
         {
             this._channelFactory = channelFactory;
             this._parser = parser;
-            this._logger = logger;
         }
 
         public void SendMessage<T>(string topic, T payload, string filterKey = "#", TimeSpan? expiration = null, string userId = null)
         {
             var message = _parser.SerializeMessage(payload);
-            _logger.LogInformation($"Sending message to {topic} - {message}");
             var channel = _channelFactory.GetChannel(topic);
             
             var options = channel.CreateBasicProperties();
