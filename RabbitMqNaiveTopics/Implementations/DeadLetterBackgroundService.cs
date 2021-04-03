@@ -20,13 +20,11 @@ namespace RabbitMqNaiveTopics.Implementations
     {
         private readonly IChannelFactory channelFactory;
         private readonly IOptions<MessagingServiceOptions> messagingServiceOptions;
-        private readonly ILogger<DeadLetterBackgroundService> logger;
         private readonly IMessageSubscriber subscription;
-        public DeadLetterBackgroundService(IServiceProvider serviceProvider, IChannelFactory channelFactory, IOptions<MessagingServiceOptions> messagingServiceOptions,  ILogger<DeadLetterBackgroundService> logger)
+        public DeadLetterBackgroundService(IServiceProvider serviceProvider, IChannelFactory channelFactory, IOptions<MessagingServiceOptions> messagingServiceOptions)
         {
             this.channelFactory = channelFactory;
             this.messagingServiceOptions = messagingServiceOptions;
-            this.logger = logger;
 
             subscription = serviceProvider
                 .GetServices<IMessageSubscriber>()

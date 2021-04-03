@@ -22,15 +22,14 @@ namespace RabbitMqNaiveTopics.Implementations
         private readonly IServiceProvider _serviceProvider;
         private readonly IChannelFactory _channelFactory;
         private readonly IOptions<MessagingServiceOptions> messagingServiceOptions;
-        private readonly ILogger<SubscribersBackgroundService> _logger;
         private readonly ConcurrentDictionary<string, IModel> subscriptionChannels = new ConcurrentDictionary<string, IModel>();
 
-        public SubscribersBackgroundService(IServiceProvider serviceProvider, IChannelFactory channelFactory, IOptions<MessagingServiceOptions> messagingServiceOptions, ILogger<SubscribersBackgroundService> logger)
+        public SubscribersBackgroundService(IServiceProvider serviceProvider, IChannelFactory channelFactory, IOptions<MessagingServiceOptions> messagingServiceOptions)
         {
             this._serviceProvider = serviceProvider;
             this._channelFactory = channelFactory;
             this.messagingServiceOptions = messagingServiceOptions;
-            this._logger = logger;
+
             subscriptionsCollection = _serviceProvider
                 .GetServices<IMessageSubscriber>()
                 .Where(s => !s.IsDeadLetter)
